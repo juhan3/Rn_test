@@ -1,13 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 카운트다운을 표시할 div 요소를 선택
+    // "Drop Date:"가 포함된 div 요소 찾기
     const dropDateDiv = Array.from(document.querySelectorAll("div")).find(div => 
         div.textContent.includes("Drop Date:")
     );
 
     if (dropDateDiv) {
-        // "Drop Date:" 문자열을 추출
+        // "Drop Date:" 문자열을 추출하고 날짜 객체로 변환
         const dateText = dropDateDiv.textContent.replace("Drop Date:", "").trim();
-        // 날짜 객체로 변환
         const dropDate = new Date(dateText);
 
         // 카운트다운 함수
