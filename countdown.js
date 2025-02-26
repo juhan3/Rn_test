@@ -9,13 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const dateText = dropDateDiv.textContent.replace("Drop Date:", "").trim();
         const dropDate = new Date(dateText);
 
+        // 카운트다운을 표시할 새로운 div 요소 생성
+        const countdownDiv = document.createElement("div");
+        dropDateDiv.appendChild(countdownDiv); // 기존 div 안에 카운트다운 div 추가
+
         // 카운트다운 함수
         function updateCountdown() {
             const now = new Date();
             const timeDifference = dropDate - now;
 
             if (timeDifference < 0) {
-                dropDateDiv.textContent = "이벤트가 종료되었습니다!";
+                countdownDiv.textContent = "이벤트가 종료되었습니다!";
                 clearInterval(countdownInterval);
                 return;
             }
@@ -27,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
 
             // 카운트다운 표시
-            dropDateDiv.innerHTML = `남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
+            countdownDiv.innerHTML = `남은 시간: ${days}일 ${hours}시간 ${minutes}분 ${seconds}초`;
         }
 
         // 카운트다운을 1초마다 갱신
