@@ -1,1 +1,5 @@
-div#productActionButtonDiv, .shopProductOptionListDiv.row.selectOptions.designSettingElement.text-body, div#productAdditionalInfo{display: none !important;}
+@media (max-width: 780px) {
+div#productActionButtonDiv, .shopProductOptionListDiv.row.selectOptions.designSettingElement.text-body, div#productAdditionalInfo{
+  display: none !important;
+}
+}
